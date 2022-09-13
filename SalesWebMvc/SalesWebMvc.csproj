@@ -22,4 +22,12 @@
       <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.2" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="Views\Sellers\aaa.html" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Views\Sellers\Index.cshtml.cs" />
+    </ItemGroup>
+
 </Project>
