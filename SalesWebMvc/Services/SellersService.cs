@@ -21,7 +21,13 @@ public class SellersService
         _context.SaveChanges();
     }
 
-    public Seller? FindById(int id) =>_context.Seller.FirstOrDefault(e => e.Id == id);
+    public Seller? FindById(int id)
+    {
+        return _context.Seller
+            .Include(e => e.Department)
+            .AsNoTracking()
+            .FirstOrDefault(e => e.Id == id);
+    }
 
     public void Remove(int id)
     {

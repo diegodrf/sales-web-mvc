@@ -41,9 +41,19 @@ namespace SalesWebMvc.Controllers
         {
             throw new NotImplementedException();
         }
-        public IActionResult Details()
+        public IActionResult Details(int? id)
         {
-            throw new NotImplementedException();
+            if (id is null)
+            {
+                return NotFound();
+            }
+            var seller = _sellersService.FindById(id.Value);
+            
+            if (seller is null)
+            {
+                return NotFound();
+            }
+            return View(seller);
         }
         public IActionResult Delete(int? id)
         {
