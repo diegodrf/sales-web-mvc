@@ -1,4 +1,5 @@
-﻿using SalesWebMvc.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using SalesWebMvc.Data;
 using SalesWebMvc.Models;
 
 namespace SalesWebMvc.Services;
@@ -17,6 +18,18 @@ public class SellersService
     public void Insert(Seller seller)
     {
         _context.Add(seller);
+        _context.SaveChanges();
+    }
+
+    public Seller? FindById(int id) =>_context.Seller.FirstOrDefault(e => e.Id == id);
+
+    public void Remove(int id)
+    {
+        var seller = FindById(id);
+            
+        if (seller is null) return;
+            
+        _context.Seller.Remove(seller);
         _context.SaveChanges();
     }
 }

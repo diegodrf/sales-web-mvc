@@ -45,9 +45,27 @@ namespace SalesWebMvc.Controllers
         {
             throw new NotImplementedException();
         }
-        public IActionResult Delete()
+        public IActionResult Delete(int? id)
         {
-            throw new NotImplementedException();
+            
+            if (id is null)
+            {
+                return NotFound();
+            }
+            var seller = _sellersService.FindById(id.Value);
+            
+            if (seller is null)
+            {
+                return NotFound();
+            }
+            return View(seller);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id)
+        {
+            _sellersService.Remove(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
