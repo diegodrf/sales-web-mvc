@@ -28,6 +28,7 @@
 
     <ItemGroup>
       <Compile Remove="Views\Sellers\Index.cshtml.cs" />
+      <Compile Remove="Models\SaleSatus.cs" />
     </ItemGroup>
 
 </Project>

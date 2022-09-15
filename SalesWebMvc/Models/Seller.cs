@@ -5,13 +5,15 @@ namespace SalesWebMvc.Models;
 public class Seller
 {
     public int Id { get; set; }
-    public string Name { get; set; }
-    public string Email { get; set; }
-    public DateTime BirthDate { get; set; }
-    public double BaseSalary { get; set; }
+    public string Name { get; init; } = string.Empty;
+    public string Email { get; init; } = string.Empty;
+    public DateTime BirthDate { get; init; }
+    public double BaseSalary { get; init; }
     public ICollection<SalesRecord> Sales { get; set; } = new List<SalesRecord>();
     public Department Department { get; set; }
-    
+
+    public int DepartmentId {  get; set; }
+
     public Seller()
     {
         
