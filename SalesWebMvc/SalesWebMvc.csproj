@@ -31,8 +31,4 @@
       <Compile Remove="Models\SaleSatus.cs" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Content Remove="Views\Sellers\Edit.cshtml" />
-    </ItemGroup>
-
 </Project>
